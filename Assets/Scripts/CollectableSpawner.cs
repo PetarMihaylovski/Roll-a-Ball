@@ -19,7 +19,7 @@ public class CollectableSpawner : MonoBehaviour
     //privates
     private void CreateCollectable() {
         //caluclate the new position
-        Vector3 position = new Vector3(0,0,0) + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0.25f, Random.Range(-size.z / 2, size.z / 2));
+        Vector3 position = new Vector3(0,0,0) + new Vector3(Random.Range(-size.x / 2, size.x / 2), 0.5f, Random.Range(-size.z / 2, size.z / 2));
         GameObject newCollectable = Instantiate(collectable, position, Quaternion.identity);
         //set the rotation of the new collectable
        
