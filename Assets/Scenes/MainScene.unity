@@ -488,7 +488,10 @@ MonoBehaviour:
   size: {x: 9, y: 0.25, z: 9}
   collectable: {fileID: 7823911728767431602, guid: a9417eaa1fc22d04e8010d5f545ddda7,
     type: 3}
+  enemyCollectable: {fileID: 7823911728767431602, guid: eb2c7958af6caac4e83cb697e314a028,
+    type: 3}
   repeatRate: 1
+  percentageThreshold: 20
 --- !u!4 &653479701
 Transform:
   m_ObjectHideFlags: 0
@@ -1001,8 +1004,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509402304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3

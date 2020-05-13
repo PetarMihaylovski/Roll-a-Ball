@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -36,6 +34,11 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             score++;
+            UpdateScoreDisplay();
+        }
+        else if(other.gameObject.CompareTag("Enemy")){
+            Destroy(other.gameObject);
+            score -= 10;
             UpdateScoreDisplay();
         }
     }
