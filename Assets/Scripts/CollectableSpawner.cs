@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollectableSpawner : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class CollectableSpawner : MonoBehaviour
     public GameObject enemyCollectable;
     public float repeatRate;
     public int percentageThreshold;
+    public Text winnerText;
 
     //privates
     private int score;
@@ -19,7 +22,7 @@ public class CollectableSpawner : MonoBehaviour
     }
 
     private void Update() {
-        score = GameObject.Find("Player").GetComponent <PlayerController>().score;
+        score = GameObject.Find("Player").GetComponent <PlayerController>().GetScore();
     }
 
     //privates
@@ -43,9 +46,11 @@ public class CollectableSpawner : MonoBehaviour
         }
         newCollectable.transform.rotation = quaternion;
 
-        //stop the spawning of new collectables
+        //stop the spawning of new collectables and remove all the existing, game is won!
         if (score == 15) {
             CancelInvoke();
+            DestroyAllCollectables();
+            winnerText.text = "Congratulations, you have won the game!";
         }
     }
 
@@ -55,5 +60,17 @@ public class CollectableSpawner : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void DestroyAllCollectables() {
+        GameObject[] allyCollectables = GameObject.FindGameObjectsWithTag("Ally");
+        GameObject[] enemyCollectables = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> collectables = new List<GameObject>();
+        collectables.AddRange(allyCollectables);
+        collectables.AddRange(enemyCollectables);
+
+        foreach (GameObject go in collectables) {
+            Destroy(go);
+        }
     }
 }

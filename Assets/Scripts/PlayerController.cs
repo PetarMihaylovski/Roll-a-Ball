@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
     //publics
     public float speed;
     public Text scoreDisplayText;
-    public int score;
 
    //privates
     private Rigidbody rb;
+    private int score;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
         score = 0;
         rb = GetComponent<Rigidbody>();
         UpdateScoreDisplay();
+        
     }
 
     // FixedUpdate is called once per frame before physics is applied.
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Collectable"))
+        if (other.gameObject.CompareTag("Ally"))
         {
             Destroy(other.gameObject);
             score++;
@@ -45,5 +46,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateScoreDisplay() {
         scoreDisplayText.text = "Score: " + score.ToString();
+    }
+
+    public int GetScore() {
+        return score;
     }
 }
