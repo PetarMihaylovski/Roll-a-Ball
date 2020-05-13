@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
     //publics
     public float speed;
     public Text scoreDisplayText;
+    public int score;
 
-    //privates
+   //privates
     private Rigidbody rb;
-    private int score;
 
     // Start is called before the first frame update
     void Start()
@@ -46,5 +46,4 @@ public class PlayerController : MonoBehaviour
     private void UpdateScoreDisplay() {
         scoreDisplayText.text = "Score: " + score.ToString();
     }
-
 }

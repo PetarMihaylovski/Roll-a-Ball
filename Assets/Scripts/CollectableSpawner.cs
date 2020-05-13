@@ -11,12 +11,15 @@ public class CollectableSpawner : MonoBehaviour
     public int percentageThreshold;
 
     //privates
-    private int collectableCounter;
+    private int score;
   
     //monos
     void Start() {
-        //playerScore = GameObject.Find
         InvokeRepeating("CreateCollectable", 0.5f, repeatRate);
+    }
+
+    private void Update() {
+        score = GameObject.Find("Player").GetComponent <PlayerController>().score;
     }
 
     //privates
@@ -40,17 +43,14 @@ public class CollectableSpawner : MonoBehaviour
         }
         newCollectable.transform.rotation = quaternion;
 
-        collectableCounter++;
-
         //stop the spawning of new collectables
-        if (collectableCounter == 15) {
+        if (score == 15) {
             CancelInvoke();
         }
     }
 
     private bool ShouldSpawnEnemyCollectable() {
         int percentage = UnityEngine.Random.Range(0, 100);
-        Debug.Log("Percentage is: " + percentage.ToString());
         if (percentage <= percentageThreshold) {
             return true;
         }
