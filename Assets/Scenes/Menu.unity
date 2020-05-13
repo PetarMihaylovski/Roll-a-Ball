@@ -409,7 +409,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Goal:\nCollect 15 points, collecting only yellow cubes.\nA yellow cube
-    is +1 point. \nA red cube is -10 ponts. \r\nRed cubes have 20% chance of spawning.\nControlls:\nWASD
+    is +1 point. \nA red cube is -10 ponts. \r\nRed cubes have 20% chance of spawning.\n\nControlls:\nWASD
     or arrows\n\nThe longer it takes, the harder it gets!\nGood luck!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

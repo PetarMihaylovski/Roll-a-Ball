@@ -491,6 +491,7 @@ MonoBehaviour:
     type: 3}
   enemyCollectable: {fileID: 7823911728767431602, guid: eb2c7958af6caac4e83cb697e314a028,
     type: 3}
+  delay: 1
   repeatRate: 1
   percentageThreshold: 20
   winnerText: {fileID: 1354043133}

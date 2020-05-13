@@ -9,6 +9,7 @@ public class CollectableSpawner : MonoBehaviour
     public Vector3 size;
     public GameObject collectable;
     public GameObject enemyCollectable;
+    public float delay;
     public float repeatRate;
     public int percentageThreshold;
     public Text winnerText;
@@ -18,7 +19,7 @@ public class CollectableSpawner : MonoBehaviour
   
     //monos
     void Start() {
-        InvokeRepeating("CreateCollectable", 0.5f, repeatRate);
+        InvokeRepeating("CreateCollectable", delay, repeatRate);
     }
 
     private void Update() {
