@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private int score;
     private AudioManager audioManager;
+    private HealthController healthController;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
         score = 0;
         rb = GetComponent<Rigidbody>();
         audioManager = FindObjectOfType<AudioManager>();
+        healthController = FindObjectOfType<HealthController>();
         UpdateScoreDisplay();
         
     }
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             audioManager.Play("MinusTen");
             score -= 10;
+            healthController.DeductHealth();
             UpdateScoreDisplay();
         }
     }

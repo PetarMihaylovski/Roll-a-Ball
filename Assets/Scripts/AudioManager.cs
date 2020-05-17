@@ -6,26 +6,13 @@ public class AudioManager : MonoBehaviour {
     //publics
     public Sound[] sounds;
 
-    private static AudioManager instance;
-    private void Awake() {
-          
-        //singleton so the music does not change when changing scenes
-        if (instance == null) {
-            instance = this;
-        }
-        else {
-            Destroy(this.gameObject);
-            return; 
-        }
-
-        DontDestroyOnLoad(this.gameObject);
-
-        foreach (var sound in sounds) {
+    
+    private void Awake() {        
+        foreach (Sound sound in sounds) {
             //add an audio source to the sound
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
             sound.source.volume = sound.volume;
-            
         }
     }
 
