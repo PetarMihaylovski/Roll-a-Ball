@@ -644,6 +644,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f3dcbaa2c16b44d4093258f32b5ea6d1, type: 3}
     volume: 0.404
     source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 636e8d7ca84b2f04ab5ae09856374540, type: 3}
+    volume: 0.404
+    source: {fileID: 0}
 --- !u!4 &550144368
 Transform:
   m_ObjectHideFlags: 0
@@ -1407,6 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652ed620e1832e04d9cba58bca26cb49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1509402304}
   hearths:
   - {fileID: 193530904}
   - {fileID: 341233482}
@@ -1478,6 +1483,7 @@ GameObject:
   - component: {fileID: 1509402306}
   - component: {fileID: 1509402305}
   - component: {fileID: 1509402309}
+  - component: {fileID: 1509402311}
   - component: {fileID: 1509402310}
   m_Layer: 0
   m_Name: Player
@@ -1590,6 +1596,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1509402311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509402304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6f6d6499d88fc4e95f5c8173aa80ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  allyCollectableValue: 1
+  enemyCollectableValue: -10
+  scoreDisplayText: {fileID: 149724810}
 --- !u!1 &1637516644
 GameObject:
   m_ObjectHideFlags: 0
