@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CollectableSpawner : MonoBehaviour {
+public class CollectableSpawner : MonoBehaviour
+{
     //publics
     public Vector3 size;
     public GameObject collectable;
@@ -11,14 +12,18 @@ public class CollectableSpawner : MonoBehaviour {
     public float delay;
     public float repeatRate;
     public int percentageThreshold;
-    public Text winnerText;
+    public TMP_Text winnerText;
+    public int winnerScore;
+
 
     //privates
     private ScoreController scoreController;
+    public GameObject restartMenu;
 
     //monos
     void Start() {
         InvokeRepeating("CreateCollectable", delay, repeatRate);
+        // restartMenu = GameObject.Find("RestartMenu");
     }
 
     private void Update() {
@@ -51,10 +56,11 @@ public class CollectableSpawner : MonoBehaviour {
         newCollectable.transform.rotation = quaternion;
 
         //stop the spawning of new collectables and remove all the existing, game is won!
-        if (scoreController.score == 15) {
+        if (scoreController.score == winnerScore) {
             CancelInvoke();
             DestroyAllCollectables();
-            winnerText.text = "Congratulations, you have won the game!";
+            winnerText.SetText("Congratulations, you have won the game!");
+            restartMenu.SetActive(true);
         }
     }
 
