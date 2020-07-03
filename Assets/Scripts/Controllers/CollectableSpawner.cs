@@ -16,13 +16,14 @@ public class CollectableSpawner : MonoBehaviour
     public int winnerScore;
     public GameObject restartMenu;
 
+
     //privates
     private ScoreController scoreController;
-
 
     //monos
     void Start() {
         InvokeRepeating("CreateCollectable", delay, repeatRate);
+        // restartMenu = GameObject.Find("RestartMenu");
     }
 
     private void Update() {
