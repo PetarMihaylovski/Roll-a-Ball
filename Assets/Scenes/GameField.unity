@@ -1178,7 +1178,7 @@ MonoBehaviour:
   repeatRate: 1
   percentageThreshold: 20
   winnerText: {fileID: 514925981}
-  winnerScore: 1
+  winnerScore: 15
   restartMenu: {fileID: 1210944834}
 --- !u!4 &653479701
 Transform:

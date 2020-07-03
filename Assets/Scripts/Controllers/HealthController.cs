@@ -15,11 +15,13 @@ public class HealthController : MonoBehaviour
     private int currentHealth;
     private const int minHealth = 0;
     private AudioManager audioManager;
+    private CollectableSpawner collectableSpawner;
 
     public void Start() {
         indexCounter = 0;
         currentHealth = 3;
         audioManager = FindObjectOfType<AudioManager>();
+        collectableSpawner = FindObjectOfType<CollectableSpawner>();
         if (audioManager == null) {
             Debug.Log("Audio manager not found");
         }
@@ -30,6 +32,7 @@ public class HealthController : MonoBehaviour
             //TODO: make an explosion or something to indicate.
             player.gameObject.SetActive(false);
             audioManager.Play("Death");
+            collectableSpawner.CancelInvoke("CreateCollectable");
             currentHealth = -1;
         }
     }
