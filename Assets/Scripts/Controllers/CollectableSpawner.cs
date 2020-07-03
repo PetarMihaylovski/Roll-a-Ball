@@ -20,15 +20,9 @@ public class CollectableSpawner : MonoBehaviour
     private ScoreController scoreController;
 
 
-    //publics    
-    public void StopRepeating(string methodName) {
-        CancelInvoke(methodName);
-    }
-
     //monos
     void Start() {
         InvokeRepeating("CreateCollectable", delay, repeatRate);
-        // restartMenu = GameObject.Find("RestartMenu");
     }
 
     private void Update() {
@@ -42,7 +36,7 @@ public class CollectableSpawner : MonoBehaviour
     //privates
     private void CreateCollectable() {
         //caluclate the new position
-        Vector3 position = new Vector3(0, 0, 0) + new Vector3(UnityEngine.Random.Range(-size.x / 2, size.x / 2), 0.25f,
+        Vector3 position = new Vector3(UnityEngine.Random.Range(-size.x / 2, size.x / 2), 0.25f,
             UnityEngine.Random.Range(-size.z / 2, size.z / 2));
 
         //set the rotation of the new object
@@ -63,7 +57,7 @@ public class CollectableSpawner : MonoBehaviour
 
         //stop the spawning of new collectables and remove all the existing, game is won!
         if (scoreController.score == winnerScore) {
-            CancelInvoke();
+            CancelInvoke("CreateCollectable");
             DestroyAllCollectables();
             winnerText.SetText("Congratulations, you have won the game!");
             restartMenu.SetActive(true);

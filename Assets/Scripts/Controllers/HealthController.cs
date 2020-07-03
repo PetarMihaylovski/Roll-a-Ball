@@ -27,12 +27,16 @@ public class HealthController : MonoBehaviour
         }
     }
 
+    // check if the player dies
     public void Update() {
         if (currentHealth == minHealth) {
             //TODO: make an explosion or something to indicate.
             player.gameObject.SetActive(false);
             audioManager.Play("Death");
             collectableSpawner.CancelInvoke("CreateCollectable");
+            collectableSpawner.restartMenu.SetActive(true);
+            collectableSpawner.winnerText.SetText("GAME OVER");
+            collectableSpawner.winnerText.color = Color.red;
             currentHealth = -1;
         }
     }
